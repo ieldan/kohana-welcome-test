@@ -2,40 +2,27 @@
 
 class Model_UserInfo extends Model_Database {
 	
-	/**
-		Returns the first name of a given user.
-		
-		@param string $user Username.
-		@return string First name of the user.
-	 */
-	public function get_first_name($user)
-	{
-		$sql = 'SELECT firstName FROM user_info WHERE user = :user';
-		
-		$query = DB::query(Database::SELECT, $sql)
-			->param(':user', $user);
-			
-		$result = $query->execute($this->_db);
-		
-		return $result->get('firstName');
-	}
+	const FIRST_NAME = 'firstName';
+	const LAST_NAME = 'lastName';
 	
 	/**
-		Returns the last name of a given user.
+		Returns a certain piece of information about a user.
 		
 		@param string $user Username.
-		@return string Last name of the user.
+		@param string $info A constant defined in this class that determines
+		what information will be queried.
+		@return string Available info on the user.
 	 */
-	public function get_last_name($user)
+	public function get($user, $info)
 	{
-		$sql = 'SELECT lastName FROM user_info WHERE user = :user';
+		$sql = 'SELECT * FROM user_info WHERE user = :user';
 		
 		$query = DB::query(Database::SELECT, $sql)
 			->param(':user', $user);
-			
+		
 		$result = $query->execute($this->_db);
 		
-		return $result->get('lastName');
+		return $result->get($info);
 	}
 
 }

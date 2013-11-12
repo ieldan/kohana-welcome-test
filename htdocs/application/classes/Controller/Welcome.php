@@ -9,8 +9,8 @@ class Controller_Welcome extends Controller_Restricted {
 	{
 		$username = Auth::instance()->get_user();
 		
-		$first_name = Model::factory('UserInfo')->get_first_name($username);
-		$last_name = Model::factory('UserInfo')->get_last_name($username);
+		$first_name = Model::factory('UserInfo')->get($username, Model_UserInfo::FIRST_NAME);
+		$last_name = Model::factory('UserInfo')->get($username, Model_UserInfo::LAST_NAME);
 		
 		$view = View::factory('page/welcome')
 			->set('name', $first_name.' '.$last_name);
