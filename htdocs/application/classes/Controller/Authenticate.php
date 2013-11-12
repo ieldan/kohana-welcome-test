@@ -20,6 +20,12 @@ class Controller_Authenticate extends Controller {
 	{
 		$auth = Auth::instance();
 		
+		if ($auth->logged_in())
+		{
+			// User already logged in. Nothing to do here.
+			$this->redirect('/', 302);
+		}
+		
 		$username = $this->request->post('username');
 		$password = $this->request->post('password');
 		
