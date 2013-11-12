@@ -1,0 +1,25 @@
+body > * {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.authentication {
+	text-align: center;
+	border: 1px black solid;
+	padding: 20px;
+	width: 300px;
+}
+
+.authentication > * {
+	display: block;
+	margin: 3px auto;	
+}
+
+.authentication > button[type=submit] {
+	margin-top: 12px;	
+}
+
+.error {
+	color: red;
+}
