@@ -6,6 +6,8 @@
 </head>
 <body>
 	<h1>Please Authenticate</h1>
-	<?php include Kohana::find_file('views', 'authenticationform') ?>
+<?= View::factory('form/login')
+	->bind('username', $username)
+	->bind('failed', $failed) ?>
 </body>
 </html>

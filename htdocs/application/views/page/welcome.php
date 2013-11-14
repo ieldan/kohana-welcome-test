@@ -7,6 +7,6 @@
 <body>
 	<h1>Welcome, <?= htmlspecialchars($name) ?>!</h1>
 	<p>You are allowed to view a restricted page!</p>
-	<?= View::factory('authenticationform') ?>
+<?= View::factory('form/logout') ?>
 </body>
 </html>
