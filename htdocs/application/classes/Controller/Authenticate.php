@@ -37,7 +37,7 @@ class Controller_Authenticate extends Controller {
 		}
 		else
 		{
-			$view = View::factory('page/login')
+			$view = View::factory('page/authenticate')
 				->set('username', $username)
 				->set('failed', strlen($username) > 0);
 			
